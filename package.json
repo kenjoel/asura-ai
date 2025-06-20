@@ -1,0 +1,120 @@
+{
+  "name": "asura-ai",
+  "displayName": "Asura AI",
+  "description": "Advanced AI coding assistant with multi-model capabilities and semantic context management",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages",
+    "Machine Learning",
+    "Snippets"
+  ],
+  "activationEvents": [
+    "onCommand:asura-ai.start",
+    "onView:asura-ai.sidebar",
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:python",
+    "onLanguage:java",
+    "onLanguage:csharp",
+    "onLanguage:php",
+    "onLanguage:go",
+    "onLanguage:rust"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "asura-ai.start",
+        "title": "Start Asura AI Assistant"
+      },
+      {
+        "command": "asura-ai.scanSecurity",
+        "title": "Asura AI: Scan Security"
+      },
+      {
+        "command": "asura-ai.scanCurrentFile",
+        "title": "Asura AI: Scan Current File"
+      },
+      {
+        "command": "asura-ai.toggleRealtimeScan",
+        "title": "Asura AI: Toggle Real-time Scan"
+      },
+      {
+        "command": "asura-ai.showSecurityReport",
+        "title": "Asura AI: Show Security Report"
+      },
+      {
+        "command": "asura-ai.fixSecurityIssue",
+        "title": "Asura AI: Fix Security Issue"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "asura-ai-sidebar",
+          "title": "Asura AI",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "asura-ai-sidebar": [
+        {
+          "id": "asura-ai.sidebar",
+          "name": "Asura AI Assistant"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^14.17.0",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "glob": "^7.1.7",
+    "mocha": "^8.4.0",
+    "typescript": "^4.3.2",
+    "vscode-test": "^1.5.2",
+    "ts-loader": "^9.2.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "openai": "^4.0.0",
+    "vscode-languageclient": "^7.0.0",
+    "vscode-languageserver": "^7.0.0",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  },
+  "keywords": [
+    "ai",
+    "assistant",
+    "code",
+    "intellisense",
+    "productivity"
+  ],
+  "author": "Asura AI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asura-ai/vscode-extension"
+  }
+}
